@@ -9,7 +9,6 @@
               ref="diceVerifyPublicKey"
     >-----BEGIN PUBLIC KEY-----MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvQcWyupwFXZ7fezr/2oHhuCGHagFUoilUmb/4zWyt8fMBDfuVPEgLSq1U9AZ4UdL/R1xDAoSY4wgWxfBpCMjywzRW+mgOuvIizCHQoryFCyQHvZuAvYUhJhvVyDrBhQiG+lmK6p7RhJNmC+RYfCTYRR2lRHTJxwLQBzHXTsRFswIDAQAB-----END PUBLIC KEY-----</textarea>
 
-
     <textarea name="other-datas"
               class="other-datas"
               placeholder="Paste the datas copied from Dice verify page here."
