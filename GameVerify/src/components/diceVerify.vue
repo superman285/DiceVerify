@@ -22,7 +22,7 @@
                 @click="clickToVerify"
         >
             Verify</button>
-        <img class="github-logo" src="../assets/githublogo.png" alt=""><a href="https://github.com/QuarkChain/open-cryptofate/blob/master/Dice.js">Dice.js</a>
+        <img class="github-logo" src="../assets/githublogo.png" alt=""><a href="https://github.com/QuarkChain/open-cryptofate/tree/master/GameVerify/Dice.js" target="_blank">Dice.js</a>
     </div>
 
     <ul class="verify-result dice-result"

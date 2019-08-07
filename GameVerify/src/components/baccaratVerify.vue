@@ -23,7 +23,7 @@
                 @click="clickToVerify"
         >
             Verify</button>
-        <img class="github-logo" src="../assets/githublogo.png" alt=""><a href="https://github.com/QuarkChain/open-cryptofate/blob/master/Baccarat.js">Baccarat.js</a>
+        <img class="github-logo" src="../assets/githublogo.png" alt=""><a href="https://github.com/QuarkChain/open-cryptofate/tree/master/GameVerify/Baccarat.js" target="_blank">Baccarat.js</a>
     </div>
 
     <ul class="verify-result baccarat-result"
