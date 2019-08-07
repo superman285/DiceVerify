@@ -105,6 +105,8 @@
                 51: '♣K',
                 52: '♦K'
             },
+            cards: [],
+            cardsLength: 416,
         }),
         mounted(){
             this.editBaccaratPublicKey = CodeMirror.fromTextArea(this.$refs.baccaratVerifyPublicKey, {
@@ -131,26 +133,877 @@
             });
 
             let editorWrap = document.getElementsByClassName("CodeMirror")[1];
-            this.editBaccaratVerifyDatas.setValue('Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n{\n' +
+            this.editBaccaratVerifyDatas.setValue(/*'Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n{\n' +
                 ' "WalletAddress": "TBK4YeBdYjAXgbskWE1XxPXngD9XuVh4RK",\n' +
                 ' "RoundId": 3710,\n' +
                 ' "Seed": 1563955383,\n' +
                 ' "Signature": "05a22a725e1480492ac77cebd176712f252c98c2d3cad6e70d7808bf9528df132f482057c4de8c9f30783efe0aca3d895f0660a0231a4c2186328508b9384a8a3e9f14c025a9f9e757aea466dbf9a667d6685cafa32a7483cde1db7cf5bde2345696be8aa498e2d0708a7ebfcca7a4f84663b877e637ed6f62c96b7ea78e85bf642437d613693cebeef1efd9668bc8721aa28b6172c19da94c59cee2081b88806702f43b5e2f32c83f6138947bb58a00f77ed34a0e345be17ad014a880fb10ad68bfca46fdd5b0c936a5a09d56875dd7a651f5c2658167a85af4b5996996fa07f5ad4fab6a6762072eb6ceadf49855ac8dc9be61eb5ad35dbf79af30702bccb8"\n' +
-                '}');
+                '}'+*/
+'Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n'+
+`{
+ "WalletAddress": "TBK4YeBdYjAXgbskWE1XxPXngD9XuVh4RK",
+ "RoundId": 1765,
+ "Seed": 1565164863,
+ "Signature": "49567482c1fac7d65c1ff8a1d772344fbd87955ab899a5e1e489d94b5d59c8d7cd2738ebc4b76ef9ffcec19c6adebc9b61eadb77ed405a74ef63c6a73bd85dd4107ede93ac0fba373eddb149749ecda5e3ceaee990b123d5061ecf30cbfe83ae81808e5e11580e8e724bb24183e4c1a5299b1432388acb76bf8a86c4018ac8e4edaac0ad62e66e5deb1525ce2fa345b148fd1ba789adbfc61c25b02933ae1e728d297181796522b9d72327a658eae910de01c2a7551dd32afd88218dbdde981c4f5e37939242c88999ef3655c7c3ed0fa04b7e06577cf0644f6afc6d1e1dbaf8e82a82404d5cd6b51028b968cbeafd0623ad0ee3e29b0d2f500025a4e9b2aa99",
+ "Cards": [
+ 1,
+ 20,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 35,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 12,
+ 35,
+ 36,
+ 37,
+ 46,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 7,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 41,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 29,
+ 27,
+ 28,
+ 29,
+ 42,
+ 31,
+ 14,
+ 23,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 38,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 26,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 48,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 33,
+ 20,
+ 21,
+ 8,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 51,
+ 33,
+ 34,
+ 35,
+ 36,
+ 27,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 43,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 11,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 21,
+ 16,
+ 15,
+ 18,
+ 25,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 24,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 47,
+ 41,
+ 9,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 31,
+ 36,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 49,
+ 13,
+ 40,
+ 15,
+ 16,
+ 17,
+ 10,
+ 19,
+ 20,
+ 21,
+ 32,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 50,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 45,
+ 50,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 13,
+ 5,
+ 6,
+ 7,
+ 17,
+ 9,
+ 39,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 37,
+ 19,
+ 36,
+ 37,
+ 34,
+ 39,
+ 40,
+ 41,
+ 16,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 18,
+ 3,
+ 4,
+ 5,
+ 24,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52
+],
+ "Length": 369
+}`);
             editorWrap.onclick = ()=>{
-                if (this.editBaccaratVerifyDatas.getValue()==='Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n{\n' +
+                if (this.editBaccaratVerifyDatas.getValue()===/*'Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n{\n' +
                     ' "WalletAddress": "TBK4YeBdYjAXgbskWE1XxPXngD9XuVh4RK",\n' +
                     ' "RoundId": 3710,\n' +
                     ' "Seed": 1563955383,\n' +
                     ' "Signature": "05a22a725e1480492ac77cebd176712f252c98c2d3cad6e70d7808bf9528df132f482057c4de8c9f30783efe0aca3d895f0660a0231a4c2186328508b9384a8a3e9f14c025a9f9e757aea466dbf9a667d6685cafa32a7483cde1db7cf5bde2345696be8aa498e2d0708a7ebfcca7a4f84663b877e637ed6f62c96b7ea78e85bf642437d613693cebeef1efd9668bc8721aa28b6172c19da94c59cee2081b88806702f43b5e2f32c83f6138947bb58a00f77ed34a0e345be17ad014a880fb10ad68bfca46fdd5b0c936a5a09d56875dd7a651f5c2658167a85af4b5996996fa07f5ad4fab6a6762072eb6ceadf49855ac8dc9be61eb5ad35dbf79af30702bccb8"\n' +
-                    '}') {
+                    '}'*/
+                    'Please click the "CopyData" button from Baccarat Verify page to copy the data then paste here. Just like:\n'+
+                    `{
+ "WalletAddress": "TBK4YeBdYjAXgbskWE1XxPXngD9XuVh4RK",
+ "RoundId": 1765,
+ "Seed": 1565164863,
+ "Signature": "49567482c1fac7d65c1ff8a1d772344fbd87955ab899a5e1e489d94b5d59c8d7cd2738ebc4b76ef9ffcec19c6adebc9b61eadb77ed405a74ef63c6a73bd85dd4107ede93ac0fba373eddb149749ecda5e3ceaee990b123d5061ecf30cbfe83ae81808e5e11580e8e724bb24183e4c1a5299b1432388acb76bf8a86c4018ac8e4edaac0ad62e66e5deb1525ce2fa345b148fd1ba789adbfc61c25b02933ae1e728d297181796522b9d72327a658eae910de01c2a7551dd32afd88218dbdde981c4f5e37939242c88999ef3655c7c3ed0fa04b7e06577cf0644f6afc6d1e1dbaf8e82a82404d5cd6b51028b968cbeafd0623ad0ee3e29b0d2f500025a4e9b2aa99",
+ "Cards": [
+ 1,
+ 20,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 35,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 12,
+ 35,
+ 36,
+ 37,
+ 46,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 7,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 41,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 29,
+ 27,
+ 28,
+ 29,
+ 42,
+ 31,
+ 14,
+ 23,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 38,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 26,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 48,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 33,
+ 20,
+ 21,
+ 8,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 51,
+ 33,
+ 34,
+ 35,
+ 36,
+ 27,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 43,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 11,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 21,
+ 16,
+ 15,
+ 18,
+ 25,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 24,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 47,
+ 41,
+ 9,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 31,
+ 36,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 4,
+ 5,
+ 6,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 49,
+ 13,
+ 40,
+ 15,
+ 16,
+ 17,
+ 10,
+ 19,
+ 20,
+ 21,
+ 32,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 50,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 45,
+ 50,
+ 51,
+ 52,
+ 1,
+ 2,
+ 3,
+ 13,
+ 5,
+ 6,
+ 7,
+ 17,
+ 9,
+ 39,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 37,
+ 19,
+ 36,
+ 37,
+ 34,
+ 39,
+ 40,
+ 41,
+ 16,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52,
+ 1,
+ 18,
+ 3,
+ 4,
+ 5,
+ 24,
+ 7,
+ 8,
+ 9,
+ 10,
+ 11,
+ 12,
+ 13,
+ 14,
+ 15,
+ 16,
+ 17,
+ 18,
+ 19,
+ 20,
+ 21,
+ 22,
+ 23,
+ 24,
+ 25,
+ 26,
+ 27,
+ 28,
+ 29,
+ 30,
+ 31,
+ 32,
+ 33,
+ 34,
+ 35,
+ 36,
+ 37,
+ 38,
+ 39,
+ 40,
+ 41,
+ 42,
+ 43,
+ 44,
+ 45,
+ 46,
+ 47,
+ 48,
+ 49,
+ 50,
+ 51,
+ 52
+],
+ "Length": 369
+}`) {
                     this.editBaccaratVerifyDatas.setValue('');
                 }
             };
         },
 
         methods: {
-
             clickToVerify(){
                 let verifyResult = this.$refs.baccaratVerifyResult;
                 verifyResult.innerText = '';
@@ -164,6 +1017,7 @@
                 let verifyDatas = {};
                 try {
                     verifyDatas = JSON.parse(this.editBaccaratVerifyDatas.getValue());
+                    console.log(verifyDatas);
                 } catch (err) {
                     console.log('err',err);
                     iziToast.warning({
@@ -178,10 +1032,12 @@
                 let roundId = verifyDatas['RoundId'];
                 let signature = verifyDatas['Signature'];
                 let seeds = verifyDatas['Seed'];
+                let cards = verifyDatas['Cards'];
+                console.log('cards',cards);
+                let length = verifyDatas['Length'];
 
-
-                if (roundId&&bankerPublicKey&&signature&&seeds) {
-                    this.verifyResult(roundId, seeds, bankerPublicKey, signature);
+                if (roundId&&bankerPublicKey&&signature&&seeds&&cards&&length) {
+                    this.verifyResult(roundId, seeds, bankerPublicKey, signature,cards,length);
                 }else {
                     //alert('Please fill the correct data!')
                     iziToast.warning({
@@ -193,7 +1049,7 @@
                 }
             },
 
-            verifyResult(_roundId,_seeds,_bankerPublicKey,_signature){
+            verifyResult(_roundId,_seeds,_bankerPublicKey,_signature,_cards,_length){
                 const verifier = createVerify('RSA-SHA256');
 
                 let verifySignatureResult = verifier.update(Number(_roundId).toString()).verify(_bankerPublicKey,_signature,'hex');
@@ -222,31 +1078,63 @@
                     clearTimeout(sig_timer);
                 },500);
 
-                let {playerCards, bankerCards, playerCardsTotalPoints, bankerCardsTotalPoints,seeds,playerCardsArray,bankerCardsArray} = this._deal(_signature,_seeds);
+
+                this.cards = _cards;
+                this.cardsLength = _length;
+                //====
+                let playerCardA = 0,
+                    bankerCardA = 0,
+                    playerCardB = 0,
+                    bankerCardB = 0,
+                    playerCardC = 0,
+                    bankerCardC = 0;
+
+                let playerCardsTotalPoints = 0,
+                    bankerCardsTotalPoints = 0;
+
+                let playerCards = 0,
+                    bankerCards = 0;
+
+                playerCardA = this.dealCard(_signature, _seeds%256);
+                bankerCardA = this.dealCard(_signature, (_seeds/Math.pow(16,2))%256);
+                playerCardB = this.dealCard(_signature, (_seeds/Math.pow(16,4))%256);
+                bankerCardB = this.dealCard(_signature, (_seeds/Math.pow(16,6))%256);
+
+                playerCardsTotalPoints = (this.card2Points(playerCardA) + this.card2Points(playerCardB)) % 10;
+                bankerCardsTotalPoints = (this.card2Points(bankerCardA) + this.card2Points(bankerCardB)) % 10;
+
+                playerCardC = 0;
+                if(this.isDealPlayerCardC(playerCardsTotalPoints, bankerCardsTotalPoints)) {
+                    playerCardC = this.dealCard(_signature, (_seeds/Math.pow(16,8))%256);
+                }
+                bankerCardC = 0;
+                if(this.isDealBankerCardC(playerCardC, playerCardsTotalPoints, bankerCardsTotalPoints)) {
+                    bankerCardC = this.dealCard(_signature, (_seeds/Math.pow(16, 10))%256);
+                }
+                playerCards = playerCardA*Math.pow(16,4)+playerCardB*Math.pow(16,2)+playerCardC;
+                bankerCards = bankerCardA*Math.pow(16,4)+bankerCardB*Math.pow(16,2)+bankerCardC;
+                playerCardsTotalPoints = (playerCardsTotalPoints + this.card2Points(playerCardC)) % 10;
+                bankerCardsTotalPoints = (bankerCardsTotalPoints + this.card2Points(bankerCardC)) % 10;
+
 
                 let betResult = [];
-                let banker1card = Math.floor(BigNumber(bankerCards>>16&0xff).minus(1).div(4)),
-                    banker2card = Math.floor(BigNumber(bankerCards>>8&0xff).minus(1).div(4));
-                let player1card = Math.floor(BigNumber(playerCards>>16&0xff).minus(1).div(4)),
-                    player2card = Math.floor(BigNumber(playerCards>>8&0xff).minus(1).div(4));
-
                 let result_oli = document.createElement("li");
                 if(playerCardsTotalPoints>bankerCardsTotalPoints) {
-                    betResult.push('100')
+                    betResult.push('100');
                     result_oli.innerHTML = '○ Game Result is&nbsp;&nbsp;<span class="pw">Player Win</span>'
                 } else if(playerCardsTotalPoints<bankerCardsTotalPoints) {
-                    betResult.push('95')
+                    betResult.push('95');
                     result_oli.innerHTML = '○ Game Result is&nbsp;&nbsp;<span class="bw">Banker Win</span>'
                 } else {
-                    betResult.push('800')
+                    betResult.push('800');
                     result_oli.innerHTML = '○ Game Result is&nbsp;&nbsp;<span class="tie">Tie</span>'
                 }
-                if(banker1card === banker2card) {
-                    betResult.push('1101')
+                if(this.pokesMap[bankerCardA][1] === this.pokesMap[bankerCardB][1]) {
+                    betResult.push('1101');
                     result_oli.innerHTML += ' , <span class="bp">Banker Pair</span>'
                 }
-                if(player1card === player2card) {
-                    betResult.push('1102')
+                if(this.pokesMap[playerCardA][1] === this.pokesMap[playerCardB][1]) {
+                    betResult.push('1102');
                     result_oli.innerHTML += ' , <span class="pp">Player Pair</span>'
                 }
 
@@ -257,15 +1145,11 @@
                 },1500);
 
 
+                let playerCardsArray = [playerCardA,playerCardB,playerCardC];
+                let bankerCardsArray = [bankerCardA,bankerCardB,bankerCardC];
                 let playerCardLi = document.createElement("li"),
                     bankerCardLi = document.createElement("li");
 
-                /*let playerShowCards = [],
-                    bankerShowCards = [];
-                for (let i = 0; i < 3; i++) {
-                    playerCardsArray[i] && playerShowCards.push(this.pokesMap[playerCardsArray[i]]);
-                    bankerCardsArray[i] && bankerShowCards.push(this.pokesMap[bankerCardsArray[i]]);
-                }*/
 
                 playerCardLi.innerHTML = `<span>○ <span class="pw">Player</span> Cards are </span>`
                 for (let i = 0; i <3 ; i++) {
@@ -302,65 +1186,41 @@
                 },3500);
             },
 
-            _deal(signature,seeds) {
-                let {cards:playerCards, cardsTotalPoints:playerCardsTotalPoints,cardA:playerCardA,cardB:playerCardB} = this._deal2Cards(signature,[seeds&0xff, seeds>>8&0xff]);
-                let playerCardC = 0;
-                let {cards:bankerCards, cardsTotalPoints:bankerCardsTotalPoints,cardA:bankerCardA,cardB:bankerCardB} = this._deal2Cards(signature,[seeds>>16&0xff, seeds>>24&0xff]);
-                let bankerCardC = 0;
-
-                if(this._isDealPlayer3rdCard(playerCardsTotalPoints, bankerCardsTotalPoints)) {
-                    playerCardC = this._deal3rdCard(playerCards,playerCardsTotalPoints,signature,Math.floor(seeds/((1024**3)*4))).cardC;
-                    playerCards = this._deal3rdCard(playerCards,playerCardsTotalPoints,signature,Math.floor(seeds/((1024**3)*4))).cards;
-                    playerCardsTotalPoints = this._deal3rdCard(playerCards,playerCardsTotalPoints,signature,Math.floor(seeds/((1024**3)*4))).cardsTotalPoints;
+            dealCard(signature, seed){
+                const r = tronWeb.sha3(signature+seed)%this.cardsLength + 1;
+                console.log('dealCard r--------->',r,this.cardsLength,this.cards);
+                let card = this.cards[r];
+                this.cards[r] = this.cards[--this.cardsLength];
+                console.log('dealCard card------cardsLength------>cards[r]',card,this.cardsLength,this.cards[r]);
+                return card;
+            },
+            recoverCards() {
+                this.cardsLength = 416;
+                for(let i=0; i<416; i++) {
+                    this.cards[i] = i%52 + 1;
                 }
-
-                if(this._isDealBanker3rdCard(playerCards, playerCardsTotalPoints, bankerCardsTotalPoints)) {
-                    bankerCardC = this._deal3rdCard(bankerCards,bankerCardsTotalPoints,signature,Math.floor(seeds/(1024**4))).cardC;
-                    bankerCards = this._deal3rdCard(bankerCards,bankerCardsTotalPoints,signature,Math.floor(seeds/(1024**4))).cards;
-                    bankerCardsTotalPoints = this._deal3rdCard(bankerCards,bankerCardsTotalPoints,signature,Math.floor(seeds/(1024**4))).cardsTotalPoints;
-                }
-                let playerCardsArray = [playerCardA,playerCardB,playerCardC];
-                let bankerCardsArray = [bankerCardA,bankerCardB,bankerCardC];
-
-                return {playerCards, bankerCards, playerCardsTotalPoints, bankerCardsTotalPoints, seeds,playerCardsArray,bankerCardsArray}
-            },
-            _dealCard(signature,seed) {
-                return Number(BigNumber(utils.keccak256(tronWeb.utils.abi.encodeParams([{ type: 'bytes' }, { type: 'uint' }],['0x'+signature, seed]))).mod(52)) + 1;
-            },
-            _deal2Cards(signature, seeds) {
-                let cardA = this._dealCard(signature, seeds[0]);
-                let cardB = this._dealCard(signature, seeds[1]);
-                let cardA2Points = cardA<=36?(Math.floor(BigNumber(cardA).minus(1).div(4))+1):0;
-                let cardB2Points = cardB<=36?(Math.floor(BigNumber(cardB).minus(1).div(4))+1):0;
-                let cardsTotalPoints = Number(BigNumber(cardA2Points+cardB2Points).mod(10));
-                let cards = cardA<<16 | cardB<<8;
-                return {cards, cardsTotalPoints,cardA,cardB};
             },
 
-            _deal3rdCard(_cards, _cardsTotalPoints, signature, seeds){
-                let cardC = this._dealCard(signature, seeds);
-                let cardC2Points = cardC<=36?(Math.floor(BigNumber(cardC).minus(1).div(4))+1):0;
-                let cards = _cards | cardC;
-                let cardsTotalPoints = Number(BigNumber(_cardsTotalPoints+cardC2Points).mod(10));
-                return {cards,cardsTotalPoints,cardC}
+            card2Points(card){
+                return card!=0&&card<=36 ? Math.floor((card-1)/4+1) : 0;
             },
-            _isDealPlayer3rdCard(playerCardsTotalPoints, bankerCardsTotalPoints){
-                if(playerCardsTotalPoints===8 || playerCardsTotalPoints===9 || bankerCardsTotalPoints===8 ||
-                    bankerCardsTotalPoints===9) {
+            isDealPlayerCardC (playerCardsTotalPoints, bankerCardsTotalPoints) {
+                if(playerCardsTotalPoints==8 || playerCardsTotalPoints==9 || bankerCardsTotalPoints==8 || bankerCardsTotalPoints==9) {
                     return false;
-                } else if(playerCardsTotalPoints%10<=5) {
+                } else if(playerCardsTotalPoints%10 <= 5) {
                     return true;
                 }
             },
-            _isDealBanker3rdCard(playerCards, playerCardsTotalPoints, bankerCardsTotalPoints){
-                let playerCardsC = playerCards & 0xff;
-                let playerCardsC2Points = (playerCardsC!==0 && playerCardsC<=36)?(Math.floor(BigNumber(playerCardsC).minus(1).div(4))+1):0;
-                if(playerCardsTotalPoints===8 || playerCardsTotalPoints===9 || bankerCardsTotalPoints===8 || bankerCardsTotalPoints===9) {
+            isDealBankerCardC(playerCardC, playerCardsTotalPoints, bankerCardsTotalPoints){
+                const playerCardC2Points = this.card2Points(playerCardC);
+
+                if(playerCardsTotalPoints==8 || playerCardsTotalPoints==9 || bankerCardsTotalPoints==8 || bankerCardsTotalPoints==9) {
                     return false;
-                } else if(bankerCardsTotalPoints<3 || (bankerCardsTotalPoints===3&&playerCardsC!==8) || (bankerCardsTotalPoints===4&&(playerCardsC===0||(playerCardsC2Points>1&&playerCardsC2Points<8))) || (bankerCardsTotalPoints===5&&(playerCardsC===0||(playerCardsC2Points>3&&playerCardsC2Points<8))) || (bankerCardsTotalPoints===6&&(playerCardsC2Points===6||playerCardsC2Points===7))) {
+                } else if(bankerCardsTotalPoints<3 || (bankerCardsTotalPoints==3&&playerCardC!=8) || (bankerCardsTotalPoints==4&&(playerCardC==0||(playerCardC2Points>1&&playerCardC2Points<8))) || (bankerCardsTotalPoints==5&&(playerCardC==0||(playerCardC2Points>3&&playerCardC2Points<8))) || (bankerCardsTotalPoints==6&&(playerCardC2Points==6||playerCardC2Points==7))) {
                     return true;
                 }
             },
+
         }
 
     }
